@@ -1,0 +1,5 @@
+{
+  "name": "GROW (ToDo RPG)",
+  "description": "日々のタスクをクリアして経験値を獲得し、ステータスをレベルアップさせるゲーミフィケーションToDoアプリ。",
+  "requestFramePermissions": []
+}
