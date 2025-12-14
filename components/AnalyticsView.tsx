@@ -56,44 +56,44 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({ tasks, stats, comp
   };
 
   return (
-    <div className={`bg-gray-900/60 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-gray-800 relative overflow-hidden ${compact ? '' : 'mt-6'}`}>
+    <div className={`bg-gray-900/60 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-gray-800 relative overflow-hidden ${compact ? '' : 'mt-6'}`}>
       {/* Background Decor */}
       <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-emerald-500/5 blur-[60px] rounded-full pointer-events-none"></div>
 
-      <h2 className="text-xl font-bold text-gray-200 flex items-center gap-2 mb-6">
-        <Activity className="w-6 h-6 text-emerald-400" />
+      <h2 className="text-base font-bold text-gray-200 flex items-center gap-2 mb-4">
+        <Activity className="w-4 h-4 text-emerald-400" />
         冒険の記録
       </h2>
 
-      <div className={`grid grid-cols-1 ${compact ? '' : 'md:grid-cols-2'} gap-8`}>
+      <div className={`grid grid-cols-1 ${compact ? '' : 'md:grid-cols-2'} gap-6`}>
         
         {/* Heatmap Section */}
         <div>
-           <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Activity Log</h3>
+           <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Activity Log</h3>
            <div className="flex flex-wrap gap-1 content-start justify-center md:justify-start">
               {heatmapData.map((day, idx) => (
                 <div 
                   key={day.date} 
-                  className={`w-3 h-3 rounded-sm ${getIntensityClass(day.count)} border border-black/20`}
+                  className={`w-2.5 h-2.5 rounded-sm ${getIntensityClass(day.count)} border border-black/20`}
                   title={`${day.date}: ${day.count} tasks`}
                 />
               ))}
            </div>
            <div className="flex items-center gap-2 mt-2 text-[10px] text-gray-500 justify-end">
               <span>Less</span>
-              <div className="w-3 h-3 bg-gray-800 rounded-sm"></div>
-              <div className="w-3 h-3 bg-emerald-900 rounded-sm"></div>
-              <div className="w-3 h-3 bg-emerald-700 rounded-sm"></div>
-              <div className="w-3 h-3 bg-emerald-500 rounded-sm"></div>
+              <div className="w-2.5 h-2.5 bg-gray-800 rounded-sm"></div>
+              <div className="w-2.5 h-2.5 bg-emerald-900 rounded-sm"></div>
+              <div className="w-2.5 h-2.5 bg-emerald-700 rounded-sm"></div>
+              <div className="w-2.5 h-2.5 bg-emerald-500 rounded-sm"></div>
               <span>More</span>
            </div>
         </div>
 
         {/* Stats Radar (Visual only) */}
         <div className="flex flex-col items-center justify-center relative">
-           <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4 w-full text-center md:text-left">Status Balance</h3>
+           <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 w-full text-center md:text-left">Status Balance</h3>
            
-           <div className="relative w-48 h-48">
+           <div className="relative w-32 h-32">
               {/* Background Triangle (Equilateral for simplicity representation) */}
               <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible opacity-50">
                  {/* Axes */}
@@ -125,9 +125,9 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({ tasks, stats, comp
               </svg>
 
               {/* Labels */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 text-[10px] font-bold text-blue-400 bg-gray-900 px-1 rounded">STUDY</div>
-              <div className="absolute bottom-2 right-0 translate-x-2 text-[10px] font-bold text-red-400 bg-gray-900 px-1 rounded">EXERCISE</div>
-              <div className="absolute bottom-2 left-0 -translate-x-2 text-[10px] font-bold text-emerald-400 bg-gray-900 px-1 rounded">WORK</div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-3 text-[8px] font-bold text-blue-400 bg-gray-900 px-1 rounded">STUDY</div>
+              <div className="absolute bottom-1 right-0 translate-x-2 text-[8px] font-bold text-red-400 bg-gray-900 px-1 rounded">EXERCISE</div>
+              <div className="absolute bottom-1 left-0 -translate-x-2 text-[8px] font-bold text-emerald-400 bg-gray-900 px-1 rounded">WORK</div>
            </div>
         </div>
 

@@ -60,21 +60,21 @@ export const MiningFarm: React.FC<MiningFarmProps> = ({ stats, generatorData, on
   };
 
   return (
-    <div className="bg-gray-900/80 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-gray-800 flex flex-col items-center justify-center relative overflow-hidden min-h-[200px] transition-all duration-500 group">
+    <div className="bg-gray-900/80 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-gray-800 flex flex-col items-center justify-center relative overflow-hidden min-h-[160px] transition-all duration-500 group">
       {/* Background Ambience */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-yellow-500/10 blur-[50px] rounded-full pointer-events-none group-hover:bg-yellow-500/20 transition-colors duration-1000"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-yellow-500/10 blur-[50px] rounded-full pointer-events-none group-hover:bg-yellow-500/20 transition-colors duration-1000"></div>
       
       {/* Label */}
-      <div className="absolute top-3 left-3 bg-gray-800/80 px-2 py-0.5 rounded text-[10px] text-yellow-500 font-mono border border-yellow-500/30 flex items-center gap-1">
-        <Pickaxe size={10} /> IDLE
+      <div className="absolute top-2 left-2 bg-gray-800/80 px-1.5 py-0.5 rounded text-[9px] text-yellow-500 font-mono border border-yellow-500/30 flex items-center gap-1">
+        <Pickaxe size={9} /> IDLE
       </div>
 
       {/* Main Visual */}
       <div className="relative z-10 py-1 flex flex-col items-center w-full">
-         <div className="text-4xl filter drop-shadow-[0_0_15px_rgba(234,179,8,0.4)] animate-pulse mb-1">
+         <div className="text-3xl filter drop-shadow-[0_0_15px_rgba(234,179,8,0.4)] animate-pulse mb-1">
             🏛️
          </div>
-         <h3 className="text-sm font-bold text-yellow-400 mb-0.5 drop-shadow-sm tracking-widest uppercase">
+         <h3 className="text-xs font-bold text-yellow-400 mb-0.5 drop-shadow-sm tracking-widest uppercase">
             資産運用
          </h3>
          <p className="text-[9px] text-gray-500 text-center max-w-[180px] mb-2">
@@ -82,38 +82,38 @@ export const MiningFarm: React.FC<MiningFarmProps> = ({ stats, generatorData, on
          </p>
 
          {/* Stats Panel */}
-         <div className="w-full max-w-[200px] bg-gray-950/50 rounded-lg p-2 border border-gray-700/50 mb-2 backdrop-blur-sm">
+         <div className="w-full max-w-[180px] bg-gray-950/50 rounded-lg p-1.5 border border-gray-700/50 mb-2 backdrop-blur-sm">
             <div className="flex justify-between items-center mb-1 pb-1 border-b border-gray-800">
                <span className="text-[9px] text-gray-500 font-bold uppercase">Total Lv</span>
-               <span className="text-white font-mono font-bold text-xs">{totalLevel}</span>
+               <span className="text-white font-mono font-bold text-[10px]">{totalLevel}</span>
             </div>
             <div className="flex justify-between items-center text-yellow-500">
                <span className="text-[9px] font-bold uppercase flex items-center gap-1">
-                  <TrendingUp size={10} /> Rate
+                  <TrendingUp size={9} /> Rate
                </span>
-               <span className="font-mono font-bold text-xs flex items-center gap-1">
+               <span className="font-mono font-bold text-[10px] flex items-center gap-1">
                   {goldPerHour} <span className="text-[8px]">G/Hr</span>
                </span>
             </div>
          </div>
 
          {/* Collection Display */}
-         <div className="flex flex-col items-center gap-2 w-full max-w-[200px]">
-             <div className="text-xl font-black text-white font-mono flex items-center gap-2 drop-shadow-lg">
-                <span className="text-yellow-500 text-base">🪙</span>
+         <div className="flex flex-col items-center gap-1 w-full max-w-[180px]">
+             <div className="text-lg font-black text-white font-mono flex items-center gap-2 drop-shadow-lg">
+                <span className="text-yellow-500 text-sm">🪙</span>
                 {pendingGold.toLocaleString()}
              </div>
              
              <button
                onClick={handleCollect}
                disabled={pendingGold <= 0}
-               className={`w-full py-1.5 px-4 rounded-lg font-bold text-[10px] uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
+               className={`w-full py-1.5 px-4 rounded-lg font-bold text-[9px] uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
                   pendingGold > 0 
                   ? 'bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-500 hover:to-orange-500 text-white shadow-[0_0_15px_rgba(234,179,8,0.3)]' 
                   : 'bg-gray-800 text-gray-600 cursor-not-allowed'
                }`}
              >
-                <Coins size={12} /> 回収
+                <Coins size={11} /> 回収
              </button>
          </div>
       </div>

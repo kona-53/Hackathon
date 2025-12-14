@@ -922,25 +922,25 @@ const App: React.FC = () => {
   const isWeeklyGoalSet = missionPool.length > 0;
 
   return (
-    <div className="min-h-screen p-4 md:p-6 flex flex-col gap-6 max-w-[1400px] mx-auto bg-gray-950 text-slate-200">
-      <header className="text-center mb-4 relative flex justify-center items-center">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-24 bg-blue-500/20 blur-[60px] rounded-full pointer-events-none"></div>
+    <div className="min-h-screen p-2 md:p-4 flex flex-col gap-4 max-w-[1400px] mx-auto bg-gray-950 text-slate-200">
+      <header className="text-center mb-2 relative flex justify-center items-center">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-16 bg-blue-500/20 blur-[50px] rounded-full pointer-events-none"></div>
         
         {isCloudEnabled && (
            <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-2">
-              <div className="bg-gray-900/80 px-4 py-1.5 rounded-full border border-yellow-500/30 text-yellow-400 font-mono font-bold flex items-center gap-2 shadow-lg">
-                 <Coins size={14} /> {gold.toLocaleString()} G
+              <div className="bg-gray-900/80 px-3 py-1 rounded-full border border-yellow-500/30 text-yellow-400 font-mono font-bold flex items-center gap-2 shadow-lg text-xs">
+                 <Coins size={12} /> {gold.toLocaleString()} G
               </div>
               
               {/* Display Ticket Count if > 0 */}
               {generatorData.skipTicketCount && generatorData.skipTicketCount > 0 ? (
-                  <div className="bg-gray-900/80 px-3 py-1.5 rounded-full border border-blue-500/30 text-blue-400 font-mono font-bold flex items-center gap-2 shadow-lg text-xs">
-                     <Ticket size={14} /> {generatorData.skipTicketCount}
+                  <div className="bg-gray-900/80 px-2 py-1 rounded-full border border-blue-500/30 text-blue-400 font-mono font-bold flex items-center gap-2 shadow-lg text-[10px]">
+                     <Ticket size={12} /> {generatorData.skipTicketCount}
                   </div>
               ) : null}
 
-              <div className="flex items-center gap-2 bg-gray-900/50 px-3 py-1.5 rounded-full border border-gray-800 text-xs text-gray-400">
-                 <Cloud size={14} className="text-emerald-500"/>
+              <div className="flex items-center gap-2 bg-gray-900/50 px-2 py-1 rounded-full border border-gray-800 text-[10px] text-gray-400">
+                 <Cloud size={12} className="text-emerald-500"/>
                  {/* Display username from metadata, fallback to email name part */}
                  <span className="hidden sm:inline">
                    {session?.user.user_metadata?.username || session?.user.email?.split('@')[0]}
@@ -949,61 +949,61 @@ const App: React.FC = () => {
               
               <button
                 onClick={handleOpenShop}
-                className="p-2 bg-gray-800 hover:bg-gray-700 text-yellow-400 hover:text-yellow-200 rounded-full transition-colors border border-yellow-500/20"
+                className="p-1.5 bg-gray-800 hover:bg-gray-700 text-yellow-400 hover:text-yellow-200 rounded-full transition-colors border border-yellow-500/20"
                 title="アイテムショップ"
               >
-                <ShoppingBag size={16} />
+                <ShoppingBag size={14} />
               </button>
 
               <button
                 onClick={() => setShowProfileSettings(true)}
-                className="p-2 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white rounded-full transition-colors"
+                className="p-1.5 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white rounded-full transition-colors"
                 title="プレイヤー設定"
               >
-                <Settings size={16} />
+                <Settings size={14} />
               </button>
 
               <button 
                 onClick={() => supabase.auth.signOut()}
-                className="p-2 bg-gray-800 hover:bg-red-900/30 text-gray-400 hover:text-red-400 rounded-full transition-colors"
+                className="p-1.5 bg-gray-800 hover:bg-red-900/30 text-gray-400 hover:text-red-400 rounded-full transition-colors"
                 title="ログアウト"
               >
-                <LogOut size={16} />
+                <LogOut size={14} />
               </button>
            </div>
         )}
         
         {!isCloudEnabled && (
             <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-3">
-                <div className="bg-gray-900/80 px-4 py-1.5 rounded-full border border-yellow-500/30 text-yellow-400 font-mono font-bold flex items-center gap-2 shadow-lg">
-                    <Coins size={14} /> {gold.toLocaleString()} G
+                <div className="bg-gray-900/80 px-3 py-1 rounded-full border border-yellow-500/30 text-yellow-400 font-mono font-bold flex items-center gap-2 shadow-lg text-xs">
+                    <Coins size={12} /> {gold.toLocaleString()} G
                 </div>
                 {generatorData.skipTicketCount && generatorData.skipTicketCount > 0 ? (
-                  <div className="bg-gray-900/80 px-3 py-1.5 rounded-full border border-blue-500/30 text-blue-400 font-mono font-bold flex items-center gap-2 shadow-lg text-xs">
-                     <Ticket size={14} /> {generatorData.skipTicketCount}
+                  <div className="bg-gray-900/80 px-2 py-1 rounded-full border border-blue-500/30 text-blue-400 font-mono font-bold flex items-center gap-2 shadow-lg text-[10px]">
+                     <Ticket size={12} /> {generatorData.skipTicketCount}
                   </div>
                 ) : null}
                 <button
                     onClick={handleOpenShop}
-                    className="p-2 bg-gray-800 hover:bg-gray-700 text-yellow-400 hover:text-yellow-200 rounded-full transition-colors border border-yellow-500/20"
+                    className="p-1.5 bg-gray-800 hover:bg-gray-700 text-yellow-400 hover:text-yellow-200 rounded-full transition-colors border border-yellow-500/20"
                     title="アイテムショップ"
                 >
-                    <ShoppingBag size={16} />
+                    <ShoppingBag size={14} />
                 </button>
-                <div className="flex items-center gap-2 text-xs text-gray-500 bg-gray-900 px-3 py-1 rounded-full border border-gray-800">
-                    <CloudOff size={14} /> Local Mode
+                <div className="flex items-center gap-2 text-[10px] text-gray-500 bg-gray-900 px-2 py-1 rounded-full border border-gray-800">
+                    <CloudOff size={12} /> Local Mode
                 </div>
             </div>
         )}
 
-        <h1 className="relative z-10 text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 tracking-tight flex items-center justify-center gap-3 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]">
-          <span className="text-5xl filter drop-shadow-lg">🌱</span> GROW
+        <h1 className="relative z-10 text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 tracking-tight flex items-center justify-center gap-2 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+          <span className="text-3xl md:text-4xl filter drop-shadow-lg">🌱</span> GROW
         </h1>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-full">
         {/* Left Sidebar (4) */}
-        <div className="lg:col-span-4 flex flex-col gap-6">
+        <div className="lg:col-span-4 flex flex-col gap-4">
           <MiningFarm 
              stats={stats} 
              generatorData={generatorData} 
@@ -1014,32 +1014,32 @@ const App: React.FC = () => {
         </div>
 
         {/* Right Content (8) - Calendar Only (Full Width) */}
-        <div className="lg:col-span-8 flex flex-col gap-6">
+        <div className="lg:col-span-8 flex flex-col gap-4">
           {/* Calendar Section */}
-          <div className="bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-gray-800 min-h-[600px] relative overflow-hidden">
+          <div className="bg-gray-900/60 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-gray-800 min-h-[500px] relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 blur-[100px] rounded-full pointer-events-none"></div>
 
             {/* NEW: Weekly Goals Section (Text Only) */}
-            <div className="mb-6 relative z-10 bg-gray-800/40 p-5 rounded-xl border border-gray-700/50">
-                <h3 className="text-xs font-bold text-gray-400 mb-3 flex items-center gap-2 uppercase tracking-wider border-b border-gray-700/50 pb-2">
-                    <Target className="w-4 h-4 text-purple-400" />
+            <div className="mb-4 relative z-10 bg-gray-800/40 p-4 rounded-xl border border-gray-700/50">
+                <h3 className="text-[10px] font-bold text-gray-400 mb-2 flex items-center gap-2 uppercase tracking-wider border-b border-gray-700/50 pb-2">
+                    <Target className="w-3 h-3 text-purple-400" />
                     今週の目標 (Weekly Goal)
                 </h3>
                 {userProfile.weeklyGoal ? (
-                    <div className="text-sm text-gray-200 font-medium whitespace-pre-wrap leading-relaxed">
+                    <div className="text-xs md:text-sm text-gray-200 font-medium whitespace-pre-wrap leading-relaxed">
                         {userProfile.weeklyGoal}
                     </div>
                 ) : (
-                    <div className="text-sm text-gray-500 font-medium whitespace-pre-wrap leading-relaxed italic text-center py-2">
+                    <div className="text-xs text-gray-500 font-medium whitespace-pre-wrap leading-relaxed italic text-center py-1">
                         週の目標が決まっていません
                     </div>
                 )}
             </div>
             
             {/* Header Area */}
-            <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-6 gap-4 relative z-10">
-                <h2 className="text-xl font-bold text-gray-200 flex items-center gap-2 shrink-0"><span className="text-2xl">📅</span> カレンダー</h2>
-                <div className="flex flex-1 w-full xl:w-auto gap-3 overflow-x-auto pb-2 xl:pb-0">
+            <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-4 gap-3 relative z-10">
+                <h2 className="text-lg font-bold text-gray-200 flex items-center gap-2 shrink-0"><span className="text-xl">📅</span> カレンダー</h2>
+                <div className="flex flex-1 w-full xl:w-auto gap-2 overflow-x-auto pb-2 xl:pb-0">
                      <StatCard type={TaskType.STUDY} exp={stats[TaskType.STUDY]} compact />
                      <StatCard type={TaskType.EXERCISE} exp={stats[TaskType.EXERCISE]} compact />
                      <StatCard type={TaskType.WORK} exp={stats[TaskType.WORK]} compact />
@@ -1047,7 +1047,7 @@ const App: React.FC = () => {
             </div>
 
             {/* Calendar Container */}
-            <div className="flex-1 h-[600px] md:h-[700px] text-sm relative z-10">
+            <div className="flex-1 h-[500px] md:h-[600px] text-xs md:text-sm relative z-10">
                 <FullCalendar
                 ref={calendarRef}
                 plugins={[ dayGridPlugin, interactionPlugin ]}
@@ -1080,7 +1080,7 @@ const App: React.FC = () => {
                     }
                     },
                     weeklySetup: {
-                        text: isWeeklyGoalSet ? '🔄 週目標変更' : '✨ 週目標',
+                        text: isWeeklyGoalSet ? '🔄 週目標' : '✨ 週目標',
                         click: () => setShowWeeklySetup(true)
                     },
                     dailyGacha: {
